@@ -14,16 +14,19 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 
 
-function Button ({ label, iconOnly=false, iconName, ...props }: ButtonProps) {
+function Button({ label, iconOnly = false, round = false, iconName, ...props }: ButtonProps) {
 
   const Icon = Icons[iconName as keyof typeof Icons];
 
   return (
     <button
-      className={`button ${iconOnly ? 'button--icononly' : 'button--basic'}`}
+      className={`button
+                       ${iconOnly ? 'button--icononly' : 'button--basic'}
+                       ${round ? 'round' : 'square'}`
+      }
       {...props}
     >
-       {iconOnly ? <Icon /> : (label && <span>{label}</span>)}
+      {iconOnly ? <Icon /> : (label && <span>{label}</span>)}
     </button>
   );
 };
