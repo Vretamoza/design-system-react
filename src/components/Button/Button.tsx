@@ -1,19 +1,29 @@
-// src/components/Button/Button.tsx
 import { ButtonHTMLAttributes } from 'react';
 import './Button.css';
+import * as Icons from "../Icon"
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  primary?: boolean;
+  iconOnly?: boolean;
+  iconName?: string;
+  ghost?: boolean;
+  danger?: boolean;
+  round?: boolean;
+  size?: "default" | "large" | "small"
 }
 
-function Button ({ label, primary, ...props }: ButtonProps) {
+
+
+function Button ({ label, iconOnly=false, iconName, ...props }: ButtonProps) {
+
+  const Icon = Icons[iconName as keyof typeof Icons];
+
   return (
     <button
-      className={`button ${primary ? 'button--primary' : 'button--secondary'}`}
+      className={`button ${iconOnly ? 'button--icononly' : 'button--basic'}`}
       {...props}
     >
-      {label}
+       {iconOnly ? <Icon /> : (label && <span>{label}</span>)}
     </button>
   );
 };
