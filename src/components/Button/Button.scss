@@ -1,17 +1,113 @@
+@use '../../styles/main' as *;
+
 .button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
     cursor: pointer;
     font-size: 16px;
+    transition: 300ms ease;
+    @extend %flex-center;
 
-    &--primary {
-      background-color: #007bff;
-      color: white;
+    &--small {
+      padding: 5px 10px;
     }
 
-    &--secondary {
-      background-color: #6c757d;
-      color: white;
+    &--default {
+      padding: 8px 15px;
     }
+    
+    &--large {
+      padding: 10px 20px;
+    }
+    
+    &--success {
+      background-color: $color-primary;
+      color: $color-white;
+      border: none;
+    }
+
+    &--danger {
+      background-color: $color-danger;
+      color: $color-white;
+      border: none;
+    }
+
+    &--round {
+      border-radius: $border-r-lg;
+    }
+
+    &--square {
+      border-radius: $border-r-sm;
+    }
+
+    &--success.button--ghost {
+      border: 1px solid $color-primary;
+      background-color: transparent;
+      color: $color-primary;
+    }
+
+    &--danger.button--ghost {
+      border: 1px solid $color-danger;
+      background-color: transparent;
+      color: $color-danger;
+    }
+  }
+
+  // BUTTON STATES
+
+  .button {
+
+    &--success:hover,
+    &--success:focus,
+    &--success:focus-visible {
+      background-color: $color-primary-hover;
+      outline: none;
+    }
+    &--success:active {
+      background-color: $color-primary-active;
+    }
+
+    &--danger:hover,
+    &--danger:focus,
+    &--danger:focus-visible {
+      background-color: $color-danger-hover;
+      outline: none;
+    }
+    &--danger:active {
+      background-color: $color-danger-active
+    }
+
+
+    &--success.button--ghost:hover,
+    &--success.button--ghost:focus,
+    &--success.button--ghost:focus-visible {
+      border: 1px solid $color-primary-hover;
+      background-color: transparent;
+      color: $color-primary-hover;
+      outline: none;
+    }
+    &--success.button--ghost:active {
+      border: 1px solid $color-primary-active;
+      color: $color-primary-active;
+    }
+
+
+    &--danger.button--ghost:hover,
+    &--danger.button--ghost:focus,
+    &--danger.button--ghost:focus-visible {
+      border: 1px solid $color-danger-hover;
+      background-color: transparent;
+      color: $color-danger-hover;
+      outline: none;
+    }
+    &--danger.button--ghost:active {
+      border: 1px solid $color-danger-active;
+      color: $color-danger-active;
+    }
+
+    &:disabled {
+      background-color: $color-bg-disabled;
+      color: $color-text-disabled;
+      border: 1px solid $color-border-disabled;
+    }
+
+
   }

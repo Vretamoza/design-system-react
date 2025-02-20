@@ -1,0 +1,22 @@
+@use 'colors' as *; 
+
+$border-r-sm: 8px;
+$border-r-md: 16px;
+$border-r-lg: 20px;
+
+$color-primary: $light-blue-6;
+$color-danger: $light-red-5;
+$color-white: #ffffff;
+
+// HOVER
+$color-primary-hover: $light-blue-5;
+$color-danger-hover: $light-red-4;
+
+// ACTIVE
+$color-primary-active: $light-blue-7;
+$color-danger-active: $light-red-6;
+
+// DISABLED
+$color-border-disabled: #D9D9D9;
+$color-bg-disabled: #0000000A;
+$color-text-disabled: #00000040;
